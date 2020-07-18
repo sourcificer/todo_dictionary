@@ -1,0 +1,27 @@
+{%extends "base.html" %}
+{% block content %}
+<div class="mt-4">
+    <form action="{% url 'home' %}" method="POST" class="ml-4 form-inline">
+        {% csrf_token %}
+        <div class="custom-control custom-checkbox my-1 mr-sm-2">
+          <input type="text" class="form-control" name="search_query" id="search-query">
+        </div>
+        <button type="submit" class="btn btn-primary my-1">Search</button>
+      </form>
+      {% if definition %}
+      <div class="mt-2 ml-5 card" style="width: 23rem;">
+        <div class="card-body">
+          <h5 class="font-weight-bolder card-title">{{ definition.word }}</h5>
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        </div>
+        {% for entry in definition.definitions %}
+        <ul class="list-group list-group-flush">
+          <li class="font-italic list-group-item">{{ entry.type }}</li>
+          <li class="font-weight-light list-group-item">{{ entry.definition }}</li>
+          <!-- <li class="list-group-item">Vestibulum at eros</li> -->
+        </ul>
+        {% endfor %}
+      </div>
+      {% endif %}
+</div>
+{% endblock content %}
