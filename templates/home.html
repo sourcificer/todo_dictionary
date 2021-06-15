@@ -12,13 +12,11 @@
       <div class="mt-2 ml-5 card" style="width: 23rem;">
         <div class="card-body">
           <h5 class="font-weight-bolder card-title">{{ definition.word }}</h5>
-          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
         </div>
         {% for entry in definition.definitions %}
         <ul class="list-group list-group-flush">
           <li class="font-italic list-group-item">{{ entry.type }}</li>
           <li class="font-weight-light list-group-item">{{ entry.definition }}</li>
-          <!-- <li class="list-group-item">Vestibulum at eros</li> -->
         </ul>
         {% endfor %}
       </div>
